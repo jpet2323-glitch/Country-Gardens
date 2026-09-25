@@ -1,0 +1,20 @@
+# Sidebar and footer navigation. `footer` is an optional shorter label for the footer.
+main:
+  - { file: index.html,        href: "./",                label: "Home",                          icon: HM }
+  - { file: farm-market.html,  href: farm-market.html,    label: "Farm Market",                   icon: FM }
+  - { file: deli.html,         href: deli.html,           label: "Deli",                          icon: DL }
+  - { file: bakery.html,       href: bakery.html,         label: "Bakery",                        icon: BK }
+  - { file: catering.html,     href: catering.html,       label: "Catering",                      icon: CT }
+  - { file: fundraising.html,  href: fundraising.html,    label: "Fundraising",                   icon: FR }
+  - { file: landscaping.html,  href: landscaping.html,    label: "Landscaping & Hardscaping",     icon: LS, footer: "Landscaping" }
+  - { file: garden-center.html, href: garden-center.html, label: "Garden Center",                 icon: GD }
+  - { file: gallery.html,      href: gallery.html,        label: "Gallery",                       icon: GL }
+  - { file: about.html,        href: about.html,          label: "About Us",                      icon: AB }
+  - { file: visit.html,        href: visit.html,          label: "Visit Us",                      icon: VS }
+more:
+  - { file: mulch-delivery.html,    href: mulch-delivery.html,    label: "Mulch Delivery",              icon: ML }
+  - { file: bruce-the-spruce.html,  href: bruce-the-spruce.html,  label: "Bruce the Spruce",            icon: BR }
+  - { file: classes-workshops.html, href: classes-workshops.html, label: "Rooted: Classes + Workshops", icon: CW, footer: "Workshops" }
+  - { file: gift-cards.html,        href: gift-cards.html,        label: "Gift Cards",                  icon: GC }
+  - { file: donations.html,         href: donations.html,         label: "Donation Request Form",       icon: DN, footer: "Donations" }
+  - { file: employment.html,        href: employment.html,        label: "Employment",                  icon: JB, footer: "Now Hiring" }

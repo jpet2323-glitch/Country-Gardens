@@ -1,0 +1,26 @@
+<aside class="sidebar" id="sidebar">
+  <a class="sidebar-logo" href="./">
+    <img src="images/logo.png" alt="Country Gardens">
+    <div class="sidebar-tagline">{{ site.tagline }}</div>
+  </a>
+
+  <nav class="sidebar-nav" aria-label="Main">
+    <div class="sidebar-section-label">Navigate</div>
+    {% for item in site.data.nav.main %}{% include nav-link.html item=item %}
+    {% endfor %}
+    <div class="sidebar-section-label">More</div>
+    {% for item in site.data.nav.more %}{% include nav-link.html item=item %}
+    {% endfor %}
+  </nav>
+
+  <div class="sidebar-bottom">
+    <a class="sidebar-cta" href="{{ site.toast_url }}" target="_blank" rel="noopener">Order Online</a>
+    <a class="sidebar-cta alt{% if page.path == 'quote.html' %} active{% endif %}" href="quote.html">Request a Quote</a>
+    <div class="sidebar-hours">
+      <span class="sidebar-status open-status" hidden></span><br>
+      {{ site.hours_weekday }}<br>
+      {{ site.hours_sunday }}<br>
+      <a href="{{ site.phone_link }}">{{ site.phone }}</a>
+    </div>
+  </div>
+</aside>
