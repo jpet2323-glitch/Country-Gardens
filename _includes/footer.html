@@ -15,12 +15,16 @@
       <div class="form-success footer-nl-msg" id="nlSuccess" role="status" style="text-align:left;padding:0;">You're on the list — welcome!</div>
     </div>
     <div>
-      <div class="footer-section-label">Explore</div>
-      <ul class="footer-links">
-        {% assign links = site.data.nav.main | concat: site.data.nav.more %}
-        {% for item in links %}{% unless item.file == 'index.html' or item.file == 'gallery.html' or item.file == 'about.html' or item.file == 'visit.html' %}<li><a href="{{ item.href }}">{{ item.footer | default: item.label | escape }}</a></li>
-        {% endunless %}{% endfor %}<li><a href="quote.html">Request a Quote</a></li>
-      </ul>
+      <div class="footer-groups">
+        {% for group in site.data.nav.groups %}{% if group.label != "" %}
+        <div>
+          <div class="footer-section-label">{{ group.label | escape }}</div>
+          <ul class="footer-links">
+            {% for item in group.items %}<li><a href="{{ item.href }}">{{ item.footer | default: item.label | escape }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>{% endif %}{% endfor %}
+      </div>
     </div>
     <div class="footer-contact">
       <img src="images/logo.png" alt="Country Gardens" loading="lazy">

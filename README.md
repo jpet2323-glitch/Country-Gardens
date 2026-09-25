@@ -6,7 +6,8 @@ Plain HTML/CSS/JS with **Jekyll**, which GitHub Pages runs automatically every t
 
 ```
 _config.yml             ← business details: phone, hours text, Toast/Formspree/social links, web address
-_data/nav.yml           ← sidebar + footer menu
+_data/nav.yml           ← sidebar + footer menu (groups, labels, icons)
+_includes/icons.html    ← icon set used in the menu and feature lists
 _includes/sidebar.html  ← sidebar
 _includes/footer.html   ← footer (newsletter, links, contact)
 _includes/mobile.html   ← phone header + Call / Directions / Order bar
@@ -87,4 +88,5 @@ Opening the files directly won't show the sidebar and footer, because Jekyll ass
 - **Hours / phone:** change them in `_config.yml` (sidebar, footer, phone bar). Also update the home page top bar (`index.html`), the Visit Us table (`visit.html`), the Google info block in `_layouts/default.html`, and `var HOURS` in `assets/site.js`, which drives the "Open now / Closed" badge (always New Jersey time).
 - **Seasonal content:** the home page's "What's Fresh" strip and the gold announcement bar change automatically by month (Winter, Spring, Summer, Fall, Holiday). Until Thanksgiving it promotes Thanksgiving orders, then switches to Christmas trees. Edit `var SEASONS` in `assets/site.js` to change the items or messages.
 - **Years in business:** calculated automatically from 1986.
+- **Menu:** reorder, rename or regroup pages in `_data/nav.yml`. The sidebar and footer both update from it. Each item's `icon` is a name from `_includes/icons.html` (for example `pie`, `leaf`, `truck`).
 - **Web address:** once countrygardensnj.com is connected, open `_config.yml` and change `url` to `"https://countrygardensnj.com"` and `baseurl` to `""`. That updates link previews, the sitemap and Google's page addresses in one step.

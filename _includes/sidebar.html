@@ -5,12 +5,10 @@
   </a>
 
   <nav class="sidebar-nav" aria-label="Main">
-    <div class="sidebar-section-label">Navigate</div>
-    {% for item in site.data.nav.main %}{% include nav-link.html item=item %}
-    {% endfor %}
-    <div class="sidebar-section-label">More</div>
-    {% for item in site.data.nav.more %}{% include nav-link.html item=item %}
-    {% endfor %}
+    {% for group in site.data.nav.groups %}{% if group.label != "" %}
+    <div class="sidebar-section-label">{{ group.label | escape }}</div>{% endif %}
+    {% for item in group.items %}{% include nav-link.html item=item %}
+    {% endfor %}{% endfor %}
   </nav>
 
   <div class="sidebar-bottom">
