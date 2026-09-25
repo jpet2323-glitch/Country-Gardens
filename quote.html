@@ -1,0 +1,147 @@
+---
+layout: default
+title: "Request a Quote — Landscaping, Catering & More"
+description: "Request a quote from Country Gardens for landscaping, hardscaping, mulch delivery, catering or fundraising. We reply within one business day."
+---
+<div class="page-header" data-bg="QUOTE">
+  <span class="kicker kicker-light">Get in Touch</span>
+  <h1 class="sh2 sh2-light">Request a Quote or Inquiry</h1>
+  <p class="slead slead-muted">Tell us what you need and we'll get back to you within one business day.</p>
+</div>
+<div class="section section-light">
+  <div class="inq-types" role="group" aria-label="Inquiry type">
+    <button type="button" class="inq-type-btn" data-type="landscape" aria-pressed="false">
+      <span class="inq-type-icon">Landscape</span>
+      <span class="inq-type-title">Landscape Job</span>
+      <span class="inq-type-desc">Design, hardscaping, maintenance, mulch &amp; topsoil delivery</span>
+    </button>
+    <button type="button" class="inq-type-btn" data-type="catering" aria-pressed="false">
+      <span class="inq-type-icon">Catering</span>
+      <span class="inq-type-title">Catering Order</span>
+      <span class="inq-type-desc">Holiday dinners, platters, party packages &amp; custom menus</span>
+    </button>
+    <button type="button" class="inq-type-btn" data-type="other" aria-pressed="false">
+      <span class="inq-type-icon">General</span>
+      <span class="inq-type-title">Other Inquiry</span>
+      <span class="inq-type-desc">Fundraising, workshops, general questions, or anything else</span>
+    </button>
+  </div>
+
+  <div class="inq-form-wrap" id="inqFormWrap" hidden>
+    <div class="form-box">
+      <div class="inq-steps" id="inqSteps" aria-hidden="true">
+        <div class="inq-step active" data-step="1"><div class="inq-step-num">1</div><span>Your Info</span></div>
+        <div class="inq-step-line"></div>
+        <div class="inq-step" data-step="2"><div class="inq-step-num">2</div><span>Details</span></div>
+        <div class="inq-step-line"></div>
+        <div class="inq-step" data-step="3"><div class="inq-step-num">3</div><span>Review</span></div>
+      </div>
+
+      <form id="inqForm" action="https://formspree.io/f/maqlgggp" method="POST" novalidate>
+        <input type="hidden" name="_subject" id="inqSubject" value="New Inquiry — Country Gardens">
+        <input type="hidden" name="inquiry_type" id="inqTypeHidden" value="">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <!-- Step 1 -->
+        <fieldset class="inq-panel active" data-panel="1">
+          <div class="inq-row">
+            <div class="inq-field"><label class="inq-label" for="iq-first">First Name <span class="inq-req">*</span></label><input class="inq-input" id="iq-first" type="text" name="first_name" required autocomplete="given-name"></div>
+            <div class="inq-field"><label class="inq-label" for="iq-last">Last Name <span class="inq-req">*</span></label><input class="inq-input" id="iq-last" type="text" name="last_name" required autocomplete="family-name"></div>
+          </div>
+          <div class="inq-row">
+            <div class="inq-field"><label class="inq-label" for="iq-email">Email <span class="inq-req">*</span></label><input class="inq-input" id="iq-email" type="email" name="email" required autocomplete="email"></div>
+            <div class="inq-field"><label class="inq-label" for="iq-phone">Phone</label><input class="inq-input" id="iq-phone" type="tel" name="phone" autocomplete="tel"></div>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-time">Best Time to Reach You</label>
+            <select class="inq-select" id="iq-time" name="best_contact_time"><option value="">— Select —</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–6pm)</option><option>Anytime</option></select>
+          </div>
+          <div class="inq-nav"><span></span><button type="button" class="inq-next" data-go="2">Next — Details →</button></div>
+        </fieldset>
+
+        <!-- Step 2: Landscape -->
+        <fieldset class="inq-panel" data-panel="2" data-for="landscape" disabled>
+          <div class="inq-field"><span class="inq-label">Type of Work <span class="inq-req">*</span></span>
+            <div class="inq-chips">
+              <input class="inq-chip" type="radio" name="landscape_type" id="ls1" value="Design & Installation" required><label for="ls1">Design &amp; Installation</label>
+              <input class="inq-chip" type="radio" name="landscape_type" id="ls2" value="Hardscaping / Patio"><label for="ls2">Hardscaping / Patio</label>
+              <input class="inq-chip" type="radio" name="landscape_type" id="ls3" value="Lawn Maintenance"><label for="ls3">Lawn Maintenance</label>
+              <input class="inq-chip" type="radio" name="landscape_type" id="ls4" value="Mulch / Topsoil Delivery"><label for="ls4">Mulch / Topsoil Delivery</label>
+              <input class="inq-chip" type="radio" name="landscape_type" id="ls5" value="Other"><label for="ls5">Other</label>
+            </div>
+          </div>
+          <div class="inq-row">
+            <div class="inq-field"><label class="inq-label" for="iq-addr">Property Address</label><input class="inq-input" id="iq-addr" type="text" name="property_address" autocomplete="street-address" placeholder="Street, town"></div>
+            <div class="inq-field"><label class="inq-label" for="iq-tl">Timeline</label>
+              <select class="inq-select" id="iq-tl" name="landscape_timeline"><option value="">— Select —</option><option>As soon as possible</option><option>Within 1 month</option><option>1–3 months</option><option>3–6 months</option><option>Just planning ahead</option></select>
+            </div>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-budget">Approximate Budget</label>
+            <select class="inq-select" id="iq-budget" name="landscape_budget"><option value="">— Select —</option><option>Under $1,000</option><option>$1,000 – $5,000</option><option>$5,000 – $15,000</option><option>$15,000+</option><option>Not sure yet</option></select>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-ldesc">Project Description</label><textarea class="inq-textarea" id="iq-ldesc" name="landscape_description" placeholder="Describe what you have in mind — for deliveries, include material and approximate yards."></textarea></div>
+          <div class="inq-nav"><button type="button" class="inq-back" data-go="1">← Back</button><button type="button" class="inq-next" data-go="3">Review &amp; Send →</button></div>
+        </fieldset>
+
+        <!-- Step 2: Catering -->
+        <fieldset class="inq-panel" data-panel="2" data-for="catering" disabled>
+          <div class="inq-field"><span class="inq-label">Type of Event <span class="inq-req">*</span></span>
+            <div class="inq-chips">
+              <input class="inq-chip" type="radio" name="catering_type" id="ct1" value="Holiday Dinner" required><label for="ct1">Holiday Dinner</label>
+              <input class="inq-chip" type="radio" name="catering_type" id="ct2" value="Birthday / Party"><label for="ct2">Birthday / Party</label>
+              <input class="inq-chip" type="radio" name="catering_type" id="ct3" value="Corporate Event"><label for="ct3">Corporate Event</label>
+              <input class="inq-chip" type="radio" name="catering_type" id="ct4" value="Deli Platter"><label for="ct4">Deli Platter</label>
+              <input class="inq-chip" type="radio" name="catering_type" id="ct5" value="Other"><label for="ct5">Other</label>
+            </div>
+          </div>
+          <div class="inq-row">
+            <div class="inq-field"><label class="inq-label" for="iq-edate">Event Date <span class="inq-req">*</span></label><input class="inq-input" id="iq-edate" type="date" name="event_date" required></div>
+            <div class="inq-field"><label class="inq-label" for="iq-guests">Number of Guests <span class="inq-req">*</span></label>
+              <select class="inq-select" id="iq-guests" name="guest_count" required><option value="">— Select —</option><option>Under 10</option><option>10 – 25</option><option>25 – 50</option><option>50 – 100</option><option>100+</option></select>
+            </div>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-pd">Pickup or Delivery?</label>
+            <select class="inq-select" id="iq-pd" name="pickup_delivery"><option value="">— Select —</option><option>Pickup from Country Gardens</option><option>Delivery needed</option><option>Not sure yet</option></select>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-diet">Dietary Needs or Restrictions</label><input class="inq-input" id="iq-diet" type="text" name="dietary_notes" placeholder="e.g. vegetarian, nut allergy, gluten free…"></div>
+          <div class="inq-field"><label class="inq-label" for="iq-cdesc">Additional Details</label><textarea class="inq-textarea" id="iq-cdesc" name="catering_description" placeholder="Menu preferences, budget, anything special!"></textarea></div>
+          <div class="inq-nav"><button type="button" class="inq-back" data-go="1">← Back</button><button type="button" class="inq-next" data-go="3">Review &amp; Send →</button></div>
+        </fieldset>
+
+        <!-- Step 2: Other -->
+        <fieldset class="inq-panel" data-panel="2" data-for="other" disabled>
+          <div class="inq-field"><span class="inq-label">What Can We Help With? <span class="inq-req">*</span></span>
+            <div class="inq-chips">
+              <input class="inq-chip" type="radio" name="other_type" id="ot1" value="Fundraising" required><label for="ot1">Fundraising</label>
+              <input class="inq-chip" type="radio" name="other_type" id="ot2" value="Classes / Workshops"><label for="ot2">Classes / Workshops</label>
+              <input class="inq-chip" type="radio" name="other_type" id="ot3" value="Bruce the Spruce / Group Visit"><label for="ot3">Group Visit</label>
+              <input class="inq-chip" type="radio" name="other_type" id="ot4" value="General Question"><label for="ot4">General Question</label>
+              <input class="inq-chip" type="radio" name="other_type" id="ot5" value="Something Else"><label for="ot5">Something Else</label>
+            </div>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-subj">Subject <span class="inq-req">*</span></label><input class="inq-input" id="iq-subj" type="text" name="other_subject" required></div>
+          <div class="inq-field"><label class="inq-label" for="iq-msg">Your Message <span class="inq-req">*</span></label><textarea class="inq-textarea" id="iq-msg" name="message" required></textarea></div>
+          <div class="inq-nav"><button type="button" class="inq-back" data-go="1">← Back</button><button type="button" class="inq-next" data-go="3">Review &amp; Send →</button></div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="inq-panel" data-panel="3">
+          <div class="inq-summary">
+            <div class="inq-summary-title">Your Submission Summary</div>
+            <dl id="inqSummary"></dl>
+          </div>
+          <div class="inq-field"><label class="inq-label" for="iq-notes">Anything else we should know?</label><textarea class="inq-textarea" id="iq-notes" name="additional_notes" style="min-height:80px;"></textarea></div>
+          <p class="form-note">By submitting you agree to be contacted by Country Gardens. We'll respond within one business day.</p>
+          <div class="inq-nav"><button type="button" class="inq-back" data-go="2">← Back</button><button type="submit" class="inq-next" id="inqSubmitBtn">Send My Inquiry</button></div>
+          <div class="form-error" role="alert"></div>
+        </fieldset>
+      </form>
+
+      <div class="form-success" id="inqSuccess" role="status" tabindex="-1">
+        <div class="check-badge"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3d6135" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <h3>We've received your inquiry!</h3>
+        <p>Thank you — a member of the Country Gardens team will be in touch within one business day.</p>
+        <button type="button" class="text-link" id="inqReset" style="background:none;border:none;border-bottom:1.5px solid var(--fern);margin-top:1.6rem;cursor:pointer;">Submit Another Inquiry</button>
+      </div>
+    </div>
+  </div>
+</div>

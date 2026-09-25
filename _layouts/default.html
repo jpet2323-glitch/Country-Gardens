@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- if page.base %}
+  <base href="{{ site.baseurl }}/">
+  {%- endif %}
+  {%- if page.home %}
+  <title>Country Gardens | {{ page.title }}</title>
+  {%- else %}
+  <title>{{ page.title }} | Country Gardens</title>
+  {%- endif %}
+  <meta name="description" content="{{ page.description | escape }}">
+  {%- assign page_url = page.url | replace: 'index.html', '' %}
+  {%- unless page.noindex %}
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page_url }}">
+  {%- else %}
+  <meta name="robots" content="noindex">
+  {%- endunless %}
+  <meta name="theme-color" content="#2b1f10">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Country Gardens Farm Market &amp; Deli">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page.description | escape }}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page_url }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/storefront-sign.jpg">
+  <meta property="og:image:alt" content="The Country Gardens sign in Robbinsville, NJ">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css?v={{ site.time | date: '%s' }}">
+  <script src="assets/site.js?v={{ site.time | date: '%s' }}" defer></script>
+
+  {%- if page.home or page.path == 'visit.html' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GroceryStore",
+    "name": "Country Gardens Farm Market & Deli",
+    "image": "{{ site.url }}{{ site.baseurl }}/images/storefront-sign.jpg",
+    "logo": "{{ site.url }}{{ site.baseurl }}/images/logo.png",
+    "telephone": "+1-609-259-1221",
+    "url": "{{ site.url }}{{ site.baseurl }}/",
+    "foundingDate": "1986",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 Robbinsville-Edinburg Rd",
+      "addressLocality": "Robbinsville",
+      "addressRegion": "NJ",
+      "postalCode": "08691",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "08:00", "closes": "17:00" }
+    ],
+    "sameAs": ["{{ site.instagram_url }}", "{{ site.facebook_url }}"]
+  }
+  </script>
+  {%- endif %}
+</head>
+<body>
+
+<a class="skip-link" href="#mainContent">Skip to content</a>
+{% include mobile.html %}
+
+<div class="app-shell">
+  {% include sidebar.html %}
+
+  <main class="main-content" id="mainContent" tabindex="-1">
+{{ content }}
+{% include footer.html %}
+  </main>
+</div>
+
+</body>
+</html>

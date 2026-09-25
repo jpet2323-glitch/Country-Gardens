@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────
+# Country Gardens — site settings
+# GitHub Pages builds this site automatically with Jekyll.
+# Business details used by the sidebar, footer and mobile bar live here.
+# ─────────────────────────────────────────────────────────────
+
+title: Country Gardens Farm Market & Deli
+tagline: Robbinsville, NJ · Est. 1986
+
+# Web address. When countrygardensnj.com is connected, change to:
+#   url: "https://countrygardensnj.com"
+#   baseurl: ""
+url: "https://jpet2323-glitch.github.io"
+baseurl: "/Country-Gardens"
+
+phone: "(609) 259-1221"
+phone_link: "tel:6092591221"
+address_line1: "42 Robbinsville-Edinburg Road"
+address_line2: "Robbinsville, NJ 08691"
+hours_weekday: "Mon–Sat 8am – 6pm"
+hours_sunday: "Sunday 8am – 5pm"
+
+toast_url: "https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd"
+formspree_url: "https://formspree.io/f/maqlgggp"
+instagram_url: "https://www.instagram.com/countrygardens_gourmetdeli/"
+facebook_url: "https://www.facebook.com/profile.php?id=100088123320577"
+directions_url: "https://www.google.com/maps/dir/?api=1&destination=Country+Gardens+42+Robbinsville-Edinburg+Rd+Robbinsville+NJ+08691"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

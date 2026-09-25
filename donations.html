@@ -1,0 +1,54 @@
+---
+layout: default
+title: "Donation Request Form"
+description: "Request a donation from Country Gardens for your school, nonprofit, team or community event in the Robbinsville and Mercer County area."
+---
+<div class="page-header" data-bg="DONATE">
+  <span class="kicker kicker-light">Give Back</span>
+  <h1 class="sh2 sh2-light">Donation Request Form</h1>
+  <p class="slead slead-muted">Country Gardens is proud to support local causes. Submit a request and our team will review it and get back to you.</p>
+</div>
+<div class="section section-light">
+  <p class="slead" style="margin-bottom:2rem;">We receive many donation requests throughout the year and do our best to support as many local organizations as we can. Please fill out the form below and we'll follow up within one week.</p>
+  <div class="form-box">
+    <form class="js-formspree" action="https://formspree.io/f/maqlgggp" method="POST" data-success="donationSuccess">
+      <input type="hidden" name="_subject" value="Donation Request — Country Gardens">
+      <input type="hidden" name="form_type" value="Donation Request">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="inq-row">
+        <div class="inq-field"><label class="inq-label" for="dn-org">Organization Name <span class="inq-req">*</span></label><input class="inq-input" id="dn-org" type="text" name="organization" required></div>
+        <div class="inq-field"><label class="inq-label" for="dn-name">Contact Name <span class="inq-req">*</span></label><input class="inq-input" id="dn-name" type="text" name="contact_name" required autocomplete="name"></div>
+      </div>
+      <div class="inq-row">
+        <div class="inq-field"><label class="inq-label" for="dn-email">Email <span class="inq-req">*</span></label><input class="inq-input" id="dn-email" type="email" name="email" required autocomplete="email"></div>
+        <div class="inq-field"><label class="inq-label" for="dn-phone">Phone</label><input class="inq-input" id="dn-phone" type="tel" name="phone" autocomplete="tel"></div>
+      </div>
+      <div class="inq-field"><label class="inq-label" for="dn-type">Type of Organization <span class="inq-req">*</span></label>
+        <select class="inq-select" id="dn-type" name="org_type" required>
+          <option value="">— Select —</option>
+          <option>School / PTA</option>
+          <option>Nonprofit Organization</option>
+          <option>Sports Team / League</option>
+          <option>Religious Organization</option>
+          <option>Community Group</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="inq-field"><label class="inq-label" for="dn-req">What Are You Requesting?</label><input class="inq-input" id="dn-req" type="text" name="request_type" placeholder="e.g. gift card, food donation, raffle item…"></div>
+      <div class="inq-field"><label class="inq-label" for="dn-purpose">Event or Purpose <span class="inq-req">*</span></label><input class="inq-input" id="dn-purpose" type="text" name="event_purpose" required placeholder="Describe the event or cause"></div>
+      <div class="inq-row">
+        <div class="inq-field"><label class="inq-label" for="dn-date">Event Date</label><input class="inq-input" id="dn-date" type="date" name="event_date"></div>
+        <div class="inq-field"><label class="inq-label" for="dn-by">Date Needed By</label><input class="inq-input" id="dn-by" type="date" name="needed_by"></div>
+      </div>
+      <div class="inq-field"><label class="inq-label" for="dn-info">Additional Information</label><textarea class="inq-textarea" id="dn-info" name="additional_info"></textarea></div>
+      <p class="form-note">We review all requests and respond within one week. Submitting a request does not guarantee a donation.</p>
+      <button type="submit" class="btn btn-green">Submit Donation Request</button>
+      <div class="form-error" role="alert"></div>
+    </form>
+    <div class="form-success" id="donationSuccess" role="status" tabindex="-1">
+      <div class="check-badge"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3d6135" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+      <h3>Request Received!</h3>
+      <p>Thank you — we'll review your request and follow up within one week.</p>
+    </div>
+  </div>
+</div>
