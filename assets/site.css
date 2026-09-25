@@ -274,7 +274,7 @@ button { font-family: inherit; }
 .footer-heading { font-family: var(--serif); font-size: 1.8rem; margin-bottom: .75rem; }
 .footer-body { font-size: .92rem; opacity: .68; line-height: 1.75; margin-bottom: 1.3rem; max-width: 300px; }
 .footer-nl-row { display: flex; gap: 8px; max-width: 380px; }
-.footer-nl-input { flex: 1; min-width: 0; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.2); padding: .72rem 1rem; border-radius: 100px; color: #fff; font-size: .92rem; font-family: var(--sans); outline: none; }
+.footer-nl-input { flex: 1; min-width: 0; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.2); padding: .72rem 1rem; border-radius: 100px; color: #fff; font-size: 1rem; font-family: var(--sans); outline: none; }
 .footer-nl-input::placeholder { color: rgba(255,255,255,.45); }
 .footer-nl-input:focus { border-color: var(--straw); }
 .footer-nl-btn { background: var(--fern); color: #fff; border: none; padding: .72rem 1.3rem; border-radius: 100px; font-size: .8rem; font-weight: 700; letter-spacing: .09em; cursor: pointer; transition: background .18s; }
@@ -358,13 +358,70 @@ button { font-family: inherit; }
   .footer-contact img { margin-left: 0; }
   .footer-social { justify-content: flex-start; }
 }
+/* ── Phones & tablets: readable small labels, finger-sized tap targets ── */
+@media (max-width: 900px) {
+  .kicker, .hero-eyebrow, .fresh-label, .footer-section-label { font-size: .74rem; }
+  .trust-label, .banner-sub, .fresh-tag, .inq-type-icon { font-size: .7rem; }
+  .sidebar-tagline, .sidebar-section-label { font-size: .68rem; }
+  .sidebar-hours, .footer-bottom { font-size: .78rem; }
+  .tab-icon, .gfi { font-size: .62rem; }
+  .stag { font-size: .74rem; }
+  .inq-label { font-size: .74rem; }
+  .fine-print, .form-note { font-size: .84rem; }
+  .action-bar a { font-size: .72rem; }
+  .topbar a { display: inline-block; padding: .6rem .3rem; }
+  .sidebar-hours a { display: inline-block; padding: .55rem .4rem; }
+  .mob-status { min-height: 44px; padding: 0 .2rem; }
+  .hero-status { padding: .6rem 1rem; font-size: .8rem; }
+  .footer-links { line-height: 1.4; }
+  .footer-links a { display: block; padding: .55rem 0; }
+  .footer-social a { padding: 11px 16px; }
+  .footer-contact a { display: inline-block; padding: .35rem 0; }
+  .text-link { padding-top: .6rem; }
+  .cd a { display: inline-block; padding: .3rem 0; }
+}
+
+/* ── Phone menu: one continuous scrolling list so every page is reachable ── */
+@media (max-width: 900px) {
+  .sidebar { overflow-y: auto; overscroll-behavior: contain; }
+  .sidebar-nav { flex: none; overflow: visible; }
+  .sidebar-logo { padding: 1rem 1rem .8rem; }
+  .sidebar-logo img { height: 56px; }
+}
+
+/* ── Phone turned sideways: give the page room ── */
+@media (max-width: 900px) and (max-height: 500px) {
+  .mob-header { position: static; }
+  .action-bar a { flex-direction: row; justify-content: center; gap: .45rem; padding: .6rem .25rem; }
+  .action-bar svg { width: 18px; height: 18px; }
+  body { padding-bottom: calc(44px + env(safe-area-inset-bottom)); }
+  .hero-wrap { min-height: 0; }
+  .topbar { display: none; }
+  .announce { padding: .45rem 1.25rem; }
+}
+
 @media (max-width: 600px) {
+  /* Phone/address already live in the Call + Directions bar; the open badge shows hours */
+  .topbar { display: none; }
+  .inq-type-btn { padding: 1rem 1.1rem; text-align: left; }
+  .inq-type-icon { display: none; }
+  .inq-type-btn[aria-pressed="true"]::after { top: 50%; transform: translateY(-50%); }
+  .page-header { padding: 2rem 1.25rem 1.6rem; }
   .inq-row, .inq-types, .vals-grid { grid-template-columns: 1fr; }
   .gg { grid-template-columns: 1fr; }
-  .og { grid-template-columns: 1fr; }
-  .oc img { height: 180px; }
+  .og { grid-template-columns: 1fr 1fr; gap: .7rem; }
+  .oc img { height: 112px; }
+  .oc-body { padding: .8rem .85rem .95rem; }
+  .oc-title { font-size: 1.08rem; line-height: 1.2; }
+  .oc-desc { font-size: .84rem; line-height: 1.5; }
   .hero-actions .btn { width: 100%; }
   .btn-row .btn { flex: 1 1 100%; }
   .inq-step span:last-child { display: none; }
   .banner-item { flex-basis: 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+}
+
+@media (max-width: 380px) {
+  .action-bar a { letter-spacing: .06em; }
+  .hide-xs { display: none; }
+  .hero-trust { gap: 1rem 1.4rem; }
 }
