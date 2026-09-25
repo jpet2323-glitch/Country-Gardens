@@ -12,7 +12,10 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Country Gardens Farm Market &amp; Deli">
   <meta property="og:description" content="Farm market, deli, bakery, catering, garden center and landscaping in Robbinsville, NJ — since 1986.">
-  <meta property="og:image" content="images/storefront-sign.jpg">
+  <meta property="og:url" content="https://jpet2323-glitch.github.io/Country-Gardens/">
+  <meta property="og:image" content="https://jpet2323-glitch.github.io/Country-Gardens/images/storefront-sign.jpg">
+  <meta property="og:image:alt" content="The Country Gardens sign in Robbinsville, NJ">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +26,8 @@
     "@context": "https://schema.org",
     "@type": "GroceryStore",
     "name": "Country Gardens Farm Market & Deli",
-    "image": "images/storefront-sign.jpg",
-    "logo": "images/logo.png",
+    "image": "https://jpet2323-glitch.github.io/Country-Gardens/images/storefront-sign.jpg",
+    "logo": "https://jpet2323-glitch.github.io/Country-Gardens/images/logo.png",
     "telephone": "+1-609-259-1221",
     "url": "https://countrygardensnj.com",
     "foundingDate": "1986",
@@ -347,6 +350,24 @@
     .footer-social a:hover { border-color: rgba(255,255,255,.6); }
     .footer-bottom { display: flex; justify-content: space-between; padding-top: 1.6rem; font-size: .68rem; color: rgba(247,242,232,.35); flex-wrap: wrap; gap: .5rem; }
 
+    /* ───────────── OPEN STATUS ───────────── */
+    .open-status { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; text-decoration: none; }
+    .open-status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #9aa39a; flex-shrink: 0; }
+    .open-status.is-open::before { background: #7fd46b; box-shadow: 0 0 0 3px rgba(127,212,107,.25); }
+    .open-status.is-closed::before { background: #e08a6d; }
+    .sidebar-status { display: block; margin-bottom: .35rem; color: var(--cream); font-size: .7rem; }
+    .sidebar-status.open-status { display: inline-flex; }
+    .hero-status { display: inline-flex; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: .74rem; letter-spacing: .04em; padding: .4rem .85rem; border-radius: 30px; margin-bottom: 1.2rem; backdrop-filter: blur(4px); }
+
+    /* ───────────── SEASONAL ANNOUNCEMENT ───────────── */
+    .announce { display: flex; align-items: center; justify-content: center; gap: .4rem 1rem; flex-wrap: wrap; background: var(--gold); color: var(--soil); padding: .7rem 3.5rem; text-align: center; font-size: .92rem; font-weight: 500; text-decoration: none; }
+    .announce strong { font-weight: 700; }
+    .announce-cta { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1.5px solid currentColor; white-space: nowrap; }
+    .announce:hover .announce-cta { opacity: .75; }
+
+    /* ───────────── MOBILE ACTION BAR ───────────── */
+    .action-bar { display: none; }
+
     /* ───────────── MOBILE HEADER ───────────── */
     .mob-header { display: none; }
     .mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 140; }
@@ -359,7 +380,15 @@
       .mob-header img { height: 44px; width: auto; }
       .mob-toggle { background: none; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; padding: .55rem .6rem; cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
       .mob-toggle span { display: block; width: 20px; height: 2px; background: var(--cream); border-radius: 2px; }
-      .mob-call { color: var(--straw); font-size: .82rem; font-weight: 700; text-decoration: none; }
+      .mob-status { color: var(--cream); font-size: .7rem; text-decoration: none; max-width: 92px; text-align: right; line-height: 1.2; }
+      .mob-status::before { margin-top: 1px; }
+      .action-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 110; background: var(--soil); border-top: 1px solid rgba(255,255,255,.1); padding-bottom: env(safe-area-inset-bottom); }
+      .action-bar a { display: flex; flex-direction: column; align-items: center; gap: .2rem; padding: .55rem .25rem .6rem; color: var(--cream); text-decoration: none; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .action-bar a + a { border-left: 1px solid rgba(255,255,255,.08); }
+      .action-bar a.primary { background: var(--fern); }
+      .action-bar svg { width: 20px; height: 20px; }
+      body { padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+      .announce { padding: .7rem 1.25rem; font-size: .86rem; }
       .sidebar { position: fixed; left: calc(-1 * var(--sidebar-w) - 20px); top: 0; bottom: 0; height: 100%; z-index: 150; transition: left .26s ease; }
       .sidebar.open { left: 0; box-shadow: 8px 0 30px rgba(0,0,0,.35); }
       .mob-overlay.open { display: block; }
@@ -409,9 +438,16 @@
     <span></span><span></span><span></span>
   </button>
   <a href="#/home" aria-label="Country Gardens home"><img src="images/logo.png" alt="Country Gardens"></a>
-  <a class="mob-call" href="tel:6092591221">Call</a>
+  <a class="mob-status open-status" href="#/visit">Hours</a>
 </header>
 <div class="mob-overlay" id="mobOverlay"></div>
+
+<!-- Mobile quick actions -->
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="tel:6092591221"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Country+Gardens+42+Robbinsville-Edinburg+Rd+Robbinsville+NJ+08691" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Directions</a>
+  <a class="primary" href="https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Order Online</a>
+</nav>
 
 <div class="app-shell">
 
@@ -449,6 +485,7 @@
       <a class="sidebar-cta" href="https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd" target="_blank" rel="noopener">Order Online</a>
       <a class="sidebar-cta alt" href="#/inquire">Request a Quote</a>
       <div class="sidebar-hours">
+        <span class="sidebar-status open-status"></span><br>
         Mon–Sat 8am – 6pm<br>
         Sunday 8am – 5pm<br>
         <a href="tel:6092591221">(609) 259-1221</a>
@@ -469,11 +506,17 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Country+Gardens+42+Robbinsville-Edinburg+Rd+Robbinsville+NJ+08691" target="_blank" rel="noopener">42 Robbinsville-Edinburg Rd</a>
       </div>
 
+      <a class="announce" id="announce" href="#/catering" hidden>
+        <span id="announceText"></span>
+        <span class="announce-cta" id="announceCta">Learn more →</span>
+      </a>
+
       <div class="hero-wrap">
         <img class="hero-bg" src="images/storefront-sign.jpg" alt="The Country Gardens sign outside the market in Robbinsville, NJ" fetchpriority="high">
         <div class="hero-scrim"></div>
         <div class="hero-body">
-          <span class="hero-eyebrow">Robbinsville, NJ · Est. 1986</span>
+          <span class="hero-eyebrow">Robbinsville, NJ · Est. 1986</span><br>
+          <a class="hero-status open-status" href="#/visit" hidden></a>
           <h1 class="hero-h1">Fresh. Local.<em>Family-made.</em></h1>
           <p class="hero-desc">Robbinsville's farm market, gourmet deli, bakery, and full-service garden center — all in one place. Serving Mercer County families since 1986.</p>
           <div class="hero-actions">
@@ -499,8 +542,8 @@
       </nav>
 
       <div class="fresh-strip">
-        <div class="fresh-label">What's Fresh &amp; In Season</div>
-        <div class="fresh-cards">
+        <div class="fresh-label">What's Fresh &amp; In Season<span id="seasonName"></span></div>
+        <div class="fresh-cards" id="freshCards">
           <div class="fresh-card">Deep-Dish Apple Pies <span class="fresh-tag">Daily</span></div>
           <div class="fresh-card">Apple Cider Donuts <span class="fresh-tag">Daily</span></div>
           <div class="fresh-card">Mums, Pumpkins &amp; Fall Decor <span class="fresh-tag">In Season</span></div>
@@ -830,6 +873,7 @@
               <li><span class="ci">ADDR</span><div class="cd"><strong>Address</strong>42 Robbinsville-Edinburg Road<br>Robbinsville, NJ 08691</div></li>
               <li><span class="ci">CALL</span><div class="cd"><strong>Phone</strong><a href="tel:6092591221">(609) 259-1221</a></div></li>
               <li><span class="ci">HRS</span><div class="cd"><strong>Hours</strong>
+                <span class="open-status visit-status" style="margin-bottom:.35rem;"></span>
                 <table class="hours-table">
                   <tr data-days="1,2,3,4,5,6"><td>Monday – Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
                   <tr data-days="0"><td>Sunday</td><td>8:00 AM – 5:00 PM</td></tr>
@@ -1314,11 +1358,83 @@
   document.querySelectorAll('.years-open').forEach(function (el) { el.textContent = year - FOUNDED; });
   document.querySelectorAll('.this-year').forEach(function (el) { el.textContent = year; });
 
-  /* ── Highlight today's hours ── */
-  var today = new Date().getDay();
-  document.querySelectorAll('.hours-table tr').forEach(function (tr) {
-    if (tr.dataset.days.split(',').indexOf(String(today)) !== -1) tr.classList.add('today');
-  });
+  /* ── Store time (always Eastern, wherever the visitor is) ── */
+  // Opening hours: [open, close] in 24h, index 0 = Sunday. Keep in sync with the hours text.
+  var HOURS = [[8, 17], [8, 18], [8, 18], [8, 18], [8, 18], [8, 18], [8, 18]];
+  function storeNow() {
+    var parts = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' })
+      .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+    return {
+      day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday),
+      year: Number(parts.year), month: Number(parts.month), date: Number(parts.day),
+      mins: (Number(parts.hour) % 24) * 60 + Number(parts.minute)
+    };
+  }
+  function fmtHour(h) { return (h % 12 || 12) + (h < 12 ? ' AM' : ' PM'); }
+
+  function updateOpenStatus() {
+    var now = storeNow(), h = HOURS[now.day], open = now.mins >= h[0] * 60 && now.mins < h[1] * 60;
+    var text;
+    if (open) text = 'Open now · until ' + fmtHour(h[1]);
+    else if (now.mins < h[0] * 60) text = 'Closed · opens ' + fmtHour(h[0]) + ' today';
+    else text = 'Closed · opens ' + fmtHour(HOURS[(now.day + 1) % 7][0]) + ' tomorrow';
+    document.querySelectorAll('.open-status').forEach(function (el) {
+      el.textContent = el.classList.contains('mob-status') ? (open ? 'Open now' : 'Closed now') : text;
+      el.classList.toggle('is-open', open);
+      el.classList.toggle('is-closed', !open);
+      el.hidden = false;
+    });
+    document.querySelectorAll('.hours-table tr').forEach(function (tr) {
+      tr.classList.toggle('today', tr.dataset.days.split(',').indexOf(String(now.day)) !== -1);
+    });
+  }
+  updateOpenStatus();
+  setInterval(updateOpenStatus, 60000);
+
+  /* ── Seasonal content: "What's Fresh" strip + announcement bar switch automatically by month ──
+     Edit these lists to change what shows each season. `announce` is optional. */
+  var SEASONS = [
+    { name: 'Winter', months: [1, 2],
+      fresh: [['House-Made Soups', 'Daily'], ['Brewed Organic Coffee', 'Hot or Iced'], ['Boar\'s Head Deli', 'Made to Order'], ['Deep-Dish Pies', 'Daily'], ['Party Platters', 'Order Ahead'], ['Firewood &amp; Propane', 'In Stock']],
+      announce: { text: '<strong>Planning a spring project?</strong> Book your landscape or hardscape consultation now, before the season fills up.', cta: 'Request a quote →', href: '#/inquire/landscape' } },
+    { name: 'Spring', months: [3, 4, 5],
+      fresh: [['Spring Bedding Plants', 'In Stock'], ['Easter Flowers', 'In Season'], ['Mulch &amp; Topsoil', 'Delivery Available'], ['Apple Cider Donuts', 'Daily'], ['Boar\'s Head Deli', 'Made to Order'], ['Easter Catering', 'Order Ahead']],
+      announce: { text: '<strong>Spring planting season is here.</strong> Bedding plants are in, and mulch and topsoil delivery is available.', cta: 'Mulch delivery →', href: '#/mulch-delivery' } },
+    { name: 'Summer', months: [6, 7, 8],
+      fresh: [['Jersey Fresh Produce', 'In Daily'], ['Summer Annuals', 'In Stock'], ['Iced Organic Coffee', 'Open Daily'], ['Boar\'s Head Deli', 'Made to Order'], ['Seasonal Fruit Pies', 'Daily'], ['Party Platters', 'Order Ahead']],
+      announce: { text: '<strong>Jersey Fresh season.</strong> Local produce in daily, plus sandwiches and platters for every summer get-together.', cta: 'Order online →', href: 'https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd' } },
+    { name: 'Fall', months: [9, 10],
+      fresh: [['Deep-Dish Apple Pies', 'Daily'], ['Apple Cider Donuts', 'Daily'], ['Mums, Pumpkins &amp; Fall Decor', 'In Season'], ['Boar\'s Head Deli', 'Made to Order'], ['Firewood', 'In Stock'], ['Thanksgiving Pies &amp; Dinners', 'Order Ahead']],
+      announce: { text: '<strong>Thanksgiving is coming.</strong> Order your deep-dish pies and holiday dinners early.', cta: 'Holiday catering →', href: '#/catering' } },
+    { name: 'Holiday', months: [11, 12],
+      fresh: [['Holiday Pies', 'Order Ahead'], ['Christmas Trees', 'In Season'], ['Wreaths &amp; Poinsettias', 'In Season'], ['Holiday Dinners', 'Order Ahead'], ['Gift Cards', 'Perfect Gift'], ['Apple Cider Donuts', 'Daily']],
+      announce: { text: '<strong>The holidays at Country Gardens:</strong> pies, holiday dinners, Christmas trees, wreaths and gift cards.', cta: 'Holiday catering →', href: '#/catering' } }
+  ];
+  (function applySeason() {
+    var now = storeNow();
+    var season = SEASONS.filter(function (x) { return x.months.indexOf(now.month) !== -1; })[0];
+    if (!season) return;
+    // Until Thanksgiving (4th Thursday of November), lead with Thanksgiving instead of Christmas.
+    var thanksgiving = 22 + (11 - new Date(Date.UTC(now.year, 10, 1)).getUTCDay()) % 7;
+    if (now.month === 11 && now.date <= thanksgiving) season = Object.assign({}, season, {
+      fresh: season.fresh.filter(function (f) { return f[0] !== 'Christmas Trees'; })
+        .map(function (f) { return f[0] === 'Holiday Pies' ? ['Thanksgiving Pies', f[1]] : f; })
+        .concat([['Mums &amp; Fall Decor', 'In Season']]),
+      announce: { text: '<strong>Thanksgiving pies &amp; dinners:</strong> order ahead, they go fast.', cta: 'Order now →', href: '#/catering' } });
+    document.getElementById('seasonName').textContent = ' · ' + season.name;
+    document.getElementById('freshCards').innerHTML = season.fresh.map(function (f) {
+      return '<div class="fresh-card">' + f[0] + ' <span class="fresh-tag">' + f[1] + '</span></div>';
+    }).join('');
+    if (season.announce) {
+      var a = document.getElementById('announce');
+      a.href = season.announce.href;
+      if (/^https?:/.test(season.announce.href)) { a.target = '_blank'; a.rel = 'noopener'; }
+      document.getElementById('announceText').innerHTML = season.announce.text;
+      document.getElementById('announceCta').textContent = season.announce.cta;
+      a.hidden = false;
+    }
+  })();
 
   /* ── Routing (#/page or #/inquire/catering) ── */
   function parseHash() {

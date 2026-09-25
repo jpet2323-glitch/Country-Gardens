@@ -71,6 +71,7 @@ Most photos are Unsplash stock placeholders. To swap one in:
 
 ## Quick edits
 
-- **Hours / phone:** they appear in the sidebar, top bar, Visit Us page, footer, and the structured data block at the top of `index.html`. Search for `8am` or `259-1221` to find them all.
-- **"What's Fresh" strip:** on the home page, search for `fresh-card`.
+- **Hours / phone:** they appear in the sidebar, top bar, Visit Us page, footer, and the structured data block at the top of `index.html`. Search for `8am` or `259-1221` to find them all. If hours change, also update `var HOURS` in the script at the bottom. That list drives the "Open now / Closed" badge, which always uses New Jersey time.
+- **Seasonal content:** the home page's "What's Fresh" strip and the gold announcement bar change automatically by month (Winter, Spring, Summer, Fall, Holiday). Until Thanksgiving it promotes Thanksgiving orders, then switches to Christmas trees. Edit `var SEASONS` in the script at the bottom to change the items or messages.
 - **Years in business:** calculated automatically from 1986.
+- **Link previews:** when the site is shared by text or on Facebook it shows the storefront sign photo. Once countrygardensnj.com is connected, replace `https://jpet2323-glitch.github.io/Country-Gardens/` near the top of `index.html` with `https://countrygardensnj.com/`.
