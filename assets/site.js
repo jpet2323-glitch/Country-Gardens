@@ -11,7 +11,7 @@
     landscaping: 'landscaping.html', landscape: 'landscaping.html', 'garden-center': 'garden-center.html', garden: 'garden-center.html',
     gallery: 'gallery.html', about: 'about.html', visit: 'visit.html', contact: 'visit.html', hours: 'visit.html',
     'mulch-delivery': 'mulch-delivery.html', mulch: 'mulch-delivery.html', 'bruce-the-spruce': 'bruce-the-spruce.html', bruce: 'bruce-the-spruce.html',
-    rooted: 'classes-workshops.html', 'gift-cards': 'gift-cards.html', giftcards: 'gift-cards.html',
+    rooted: './', 'classes-workshops': './', 'gift-cards': 'gift-cards.html', giftcards: 'gift-cards.html',
     donations: 'donations.html', donation: 'donations.html', employment: 'employment.html', inquire: 'quote.html'
   };
   if (/^#\//.test(location.hash)) {

@@ -125,6 +125,7 @@ button { font-family: inherit; }
 .two-col.top { align-items: start; }
 .photo { width: 100%; border-radius: 4px; aspect-ratio: 4/3; object-fit: cover; background: var(--parchment); }
 .photo.portrait { aspect-ratio: 3/4; }
+.photo-banner { display: block; width: 100%; height: clamp(260px, 44vw, 600px); object-fit: cover; background: var(--parchment); }
 
 .callout { background: var(--sky); border-radius: 6px; padding: 2rem 2.2rem; margin-top: 2.5rem; }
 .callout h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--soil); margin-bottom: .6rem; }
@@ -169,6 +170,7 @@ button { font-family: inherit; }
 
 /* ───────────── FEATURE LISTS ───────────── */
 .gfs { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.4rem; }
+.gfs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 2.5rem; max-width: 980px; }
 .gf { display: flex; gap: .85rem; align-items: flex-start; }
 .gfi { width: 40px; height: 40px; flex-shrink: 0; background: var(--moss); color: var(--fern); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 21px; }
 .gft { font-size: .88rem; font-weight: 700; color: var(--fern); margin-bottom: .1rem; }
@@ -195,10 +197,9 @@ button { font-family: inherit; }
 .stack { display: flex; flex-direction: column; gap: 1.1rem; }
 
 /* ───────────── GALLERY ───────────── */
-.gg { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
-.gi { border-radius: 3px; overflow: hidden; aspect-ratio: 4/3; margin: 0; position: relative; background: var(--parchment); }
-.gi.tall { grid-row: span 2; aspect-ratio: auto; }
-.gi img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.gg { columns: 3 240px; column-gap: .85rem; }
+.gi { break-inside: avoid; margin: 0 0 .85rem; border-radius: 4px; overflow: hidden; position: relative; background: var(--parchment); }
+.gi img { width: 100%; height: auto; transition: transform .3s; }
 .gi:hover img { transform: scale(1.04); }
 .gi figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: .6rem .8rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.55)); }
 
@@ -354,8 +355,8 @@ button { font-family: inherit; }
   .two-col, .mc, .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .two-col .photo { order: -1; aspect-ratio: 16/10; }
   .photo.portrait { aspect-ratio: 4/3; }
-  .gg { grid-template-columns: 1fr 1fr; }
-  .gi.tall { grid-row: span 1; aspect-ratio: 4/3; }
+  .gg { columns: 2; column-gap: .6rem; }
+  .gi { margin-bottom: .6rem; }
   .form-box { padding: 1.5rem 1.2rem; }
   .callout { padding: 1.6rem 1.3rem; }
   .footer-wrap { padding: 3rem 1.25rem 2rem; border-radius: 24px 24px 0 0; }
@@ -405,6 +406,7 @@ button { font-family: inherit; }
 }
 
 @media (max-width: 600px) {
+  .gfs-grid { grid-template-columns: 1fr; }
   /* Phone/address already live in the Call + Directions bar; the open badge shows hours */
   .topbar { display: none; }
   .inq-type-btn { padding: 1rem 1.1rem; text-align: left; display: grid; grid-template-columns: 40px 1fr; column-gap: .9rem; align-items: center; }
@@ -412,7 +414,6 @@ button { font-family: inherit; }
   .inq-type-btn[aria-pressed="true"]::after { top: 50%; transform: translateY(-50%); }
   .page-header { padding: 2rem 1.25rem 1.6rem; }
   .inq-row, .inq-types, .vals-grid { grid-template-columns: 1fr; }
-  .gg { grid-template-columns: 1fr; }
   .og { grid-template-columns: 1fr 1fr; gap: .7rem; }
   .oc img { height: 112px; }
   .oc-body { padding: .8rem .85rem .95rem; }
