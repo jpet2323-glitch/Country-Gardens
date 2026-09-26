@@ -61,6 +61,7 @@
 
   /* ── Seasonal content: "What's Fresh" strip + announcement bar switch automatically by month ──
      Edit these lists to change what shows each season. `announce` is optional. */
+  var TOAST = 'https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd';
   var SEASONS = [
     { name: 'Winter', months: [1, 2],
       fresh: [['House-Made Soups', 'Daily'], ['Brewed Organic Coffee', 'Hot or Iced'], ['Boar\'s Head Deli', 'Made to Order'], ['Deep-Dish Pies', 'Daily'], ['Party Platters', 'Order Ahead'], ['Firewood &amp; Propane', 'In Stock']],
@@ -70,26 +71,27 @@
       announce: { text: '<strong>Spring planting season is here.</strong> Bedding plants are in, and mulch and topsoil delivery is available.', cta: 'Mulch delivery →', href: 'mulch-delivery.html' } },
     { name: 'Summer', months: [6, 7, 8],
       fresh: [['Jersey Fresh Produce', 'In Daily'], ['Summer Annuals', 'In Stock'], ['Iced Organic Coffee', 'Open Daily'], ['Boar\'s Head Deli', 'Made to Order'], ['Seasonal Fruit Pies', 'Daily'], ['Party Platters', 'Order Ahead']],
-      announce: { text: '<strong>Jersey Fresh season.</strong> Local produce in daily, plus sandwiches and platters for every summer get-together.', cta: 'Order online →', href: 'https://order.toasttab.com/online/dj-s-country-gardens-42-robbinsville-edinburg-rd' } },
+      announce: { text: '<strong>Jersey Fresh season.</strong> Local produce in daily, plus sandwiches and platters for every summer get-together.', cta: 'Order online →', href: TOAST } },
     { name: 'Fall', months: [9, 10],
-      fresh: [['Deep-Dish Apple Pies', 'Daily'], ['Apple Cider Donuts', 'Daily'], ['Mums, Pumpkins &amp; Fall Decor', 'In Season'], ['Boar\'s Head Deli', 'Made to Order'], ['Firewood', 'In Stock'], ['Thanksgiving Pies &amp; Dinners', 'Order Ahead']],
-      announce: { text: '<strong>Thanksgiving is coming.</strong> Order your deep-dish pies and holiday dinners early.', cta: 'Holiday catering →', href: 'catering.html' } },
+      fresh: [['Deep-Dish Apple Pies', 'Daily'], ['Apple Cider Donuts', 'Daily'], ['Mums, Pumpkins &amp; Fall Decor', 'In Season'], ['Boar\'s Head Deli', 'Made to Order'], ['Firewood', 'In Stock'], ['Thanksgiving Pies', 'Order Online']],
+      announce: { text: '<strong>Thanksgiving is coming.</strong> Order your 10" deep-dish pies online — they go fast.', cta: 'Order pies online →', href: TOAST } },
     { name: 'Holiday', months: [11, 12],
-      fresh: [['Holiday Pies', 'Order Ahead'], ['Christmas Trees', 'In Season'], ['Wreaths &amp; Poinsettias', 'In Season'], ['Holiday Dinners', 'Order Ahead'], ['Gift Cards', 'Perfect Gift'], ['Apple Cider Donuts', 'Daily']],
-      announce: { text: '<strong>The holidays at Country Gardens:</strong> pies, holiday dinners, Christmas trees, wreaths and gift cards.', cta: 'Holiday catering →', href: 'catering.html' } }
+      fresh: [['Holiday Pies', 'Order Online'], ['Christmas Trees', 'In Season'], ['Wreaths &amp; Poinsettias', 'In Season'], ['Holiday Dinners', 'Order Ahead'], ['Gift Cards', 'Perfect Gift'], ['Apple Cider Donuts', 'Daily']],
+      announce: { text: '<strong>Christmas trees are here!</strong> Plus wreaths, poinsettias, holiday pies and gift cards.', cta: 'Garden center →', href: 'garden-center.html' } }
   ];
   (function applySeason() {
     if (!document.getElementById('freshCards')) return;
     var now = storeNow();
     var season = SEASONS.filter(function (x) { return x.months.indexOf(now.month) !== -1; })[0];
     if (!season) return;
-    // Until Thanksgiving (4th Thursday of November), lead with Thanksgiving instead of Christmas.
+    // Until Thanksgiving (4th Thursday of November), lead with Thanksgiving pies.
+    // Christmas trees arrive mid-November.
     var thanksgiving = 22 + (11 - new Date(Date.UTC(now.year, 10, 1)).getUTCDay()) % 7;
     if (now.month === 11 && now.date <= thanksgiving) season = Object.assign({}, season, {
-      fresh: season.fresh.filter(function (f) { return f[0] !== 'Christmas Trees'; })
+      fresh: season.fresh
         .map(function (f) { return f[0] === 'Holiday Pies' ? ['Thanksgiving Pies', f[1]] : f; })
-        .concat([['Mums &amp; Fall Decor', 'In Season']]),
-      announce: { text: '<strong>Thanksgiving pies &amp; dinners:</strong> order ahead, they go fast.', cta: 'Order now →', href: 'catering.html' } });
+        .map(function (f) { return f[0] === 'Christmas Trees' && now.date < 15 ? ['Christmas Trees', 'Arriving Mid-Nov'] : f; }),
+      announce: { text: '<strong>Thanksgiving pies:</strong> order your 10" deep-dish pies online — they go fast.', cta: 'Order pies online →', href: TOAST } });
     document.getElementById('seasonName').textContent = ' · ' + season.name;
     document.getElementById('freshCards').innerHTML = season.fresh.map(function (f) {
       return '<div class="fresh-card">' + f[0] + ' <span class="fresh-tag">' + f[1] + '</span></div>';
