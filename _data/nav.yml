@@ -1,20 +1,30 @@
-# Sidebar and footer navigation. `footer` is an optional shorter label for the footer.
-main:
-  - { file: index.html,        href: "./",                label: "Home",                          icon: HM }
-  - { file: farm-market.html,  href: farm-market.html,    label: "Farm Market",                   icon: FM }
-  - { file: deli.html,         href: deli.html,           label: "Deli",                          icon: DL }
-  - { file: bakery.html,       href: bakery.html,         label: "Bakery",                        icon: BK }
-  - { file: catering.html,     href: catering.html,       label: "Catering",                      icon: CT }
-  - { file: fundraising.html,  href: fundraising.html,    label: "Fundraising",                   icon: FR }
-  - { file: landscaping.html,  href: landscaping.html,    label: "Landscaping & Hardscaping",     icon: LS, footer: "Landscaping" }
-  - { file: garden-center.html, href: garden-center.html, label: "Garden Center",                 icon: GD }
-  - { file: gallery.html,      href: gallery.html,        label: "Gallery",                       icon: GL }
-  - { file: about.html,        href: about.html,          label: "About Us",                      icon: AB }
-  - { file: visit.html,        href: visit.html,          label: "Visit Us",                      icon: VS }
-more:
-  - { file: mulch-delivery.html,    href: mulch-delivery.html,    label: "Mulch Delivery",              icon: ML }
-  - { file: bruce-the-spruce.html,  href: bruce-the-spruce.html,  label: "Bruce the Spruce",            icon: BR }
-  - { file: classes-workshops.html, href: classes-workshops.html, label: "Rooted: Classes + Workshops", icon: CW, footer: "Workshops" }
-  - { file: gift-cards.html,        href: gift-cards.html,        label: "Gift Cards",                  icon: GC }
-  - { file: donations.html,         href: donations.html,         label: "Donation Request Form",       icon: DN, footer: "Donations" }
-  - { file: employment.html,        href: employment.html,        label: "Employment",                  icon: JB, footer: "Now Hiring" }
+# Sidebar and footer menu, grouped the way customers shop.
+# `icon` is a name from _includes/icons.html. `footer` is an optional shorter label for the footer.
+groups:
+  - label: ""
+    items:
+      - { file: index.html,             href: "./",                   label: "Home",                        icon: home }
+  - label: "Food"
+    items:
+      - { file: farm-market.html,       href: farm-market.html,       label: "Farm Market",                 icon: basket }
+      - { file: deli.html,              href: deli.html,              label: "Deli",                        icon: sandwich }
+      - { file: bakery.html,            href: bakery.html,            label: "Bakery",                      icon: pie }
+      - { file: catering.html,          href: catering.html,          label: "Catering",                    icon: cloche }
+  - label: "Garden & Yard"
+    items:
+      - { file: garden-center.html,     href: garden-center.html,     label: "Garden Center",               icon: leaf }
+      - { file: landscaping.html,       href: landscaping.html,       label: "Landscaping & Hardscaping",   icon: shovel, footer: "Landscaping" }
+      - { file: mulch-delivery.html,    href: mulch-delivery.html,    label: "Mulch Delivery",              icon: truck }
+  - label: "Community"
+    items:
+      - { file: fundraising.html,       href: fundraising.html,       label: "Fundraising",                 icon: star }
+      - { file: bruce-the-spruce.html,  href: bruce-the-spruce.html,  label: "Bruce the Spruce",            icon: tree }
+      - { file: classes-workshops.html, href: classes-workshops.html, label: "Rooted: Classes + Workshops", icon: sprout, footer: "Workshops" }
+      - { file: donations.html,         href: donations.html,         label: "Donation Requests",           icon: heart, footer: "Donations" }
+  - label: "Visit & Info"
+    items:
+      - { file: visit.html,             href: visit.html,             label: "Hours & Directions",          icon: pin }
+      - { file: about.html,             href: about.html,             label: "About Us",                    icon: family }
+      - { file: gallery.html,           href: gallery.html,           label: "Gallery",                     icon: camera }
+      - { file: gift-cards.html,        href: gift-cards.html,        label: "Gift Cards",                  icon: gift }
+      - { file: employment.html,        href: employment.html,        label: "Jobs",                        icon: briefcase, footer: "Now Hiring" }
