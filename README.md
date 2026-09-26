@@ -36,7 +36,6 @@ sitemap.xml, robots.txt ← help Google find every page
 | About Us | `about.html` |
 | Visit Us | `visit.html` |
 | Mulch Delivery | `mulch-delivery.html` |
-| Bruce the Spruce | `bruce-the-spruce.html` |
 | Gift Cards | `gift-cards.html` |
 | Donation Request Form | `donations.html` |
 | Employment | `employment.html` |
@@ -57,7 +56,7 @@ All forms post to Formspree at `https://formspree.io/f/maqlgggp`. Each submissio
 
 ## Replacing placeholder photos
 
-Real photos are in `images/` (smaller copies for cards and the gallery are in `images/thumbs/`). A few Unsplash stock placeholders remain (Fundraising, Landscaping, Mulch Delivery, Bruce the Spruce, Gift Cards). To swap one in:
+Real photos are in `images/` (smaller copies for cards and the gallery are in `images/thumbs/`). A few Unsplash stock placeholders remain (Fundraising, Landscaping, Mulch Delivery, Gift Cards). To swap one in:
 
 1. Put the real photo in `images/` (e.g. `images/deli-counter.jpg`). Keep it under ~500 KB. Landscape (4:3) works best.
 2. In the page's file (e.g. `deli.html`), search for `unsplash` and replace that `src="https://images.unsplash.com/..."` with `src="images/deli-counter.jpg"`.
