@@ -1,0 +1,17 @@
+{
+  "responses_sheet_id": "1Uo7moV3qCtJmk2FvKN2C_ndmgQZsfZRZ4P5kR8k-0hg",
+  "invoice_prefix": "INV-2026",
+  "order_phrase": "Thanksgiving pie fundraiser order",
+  "pie_price": 17.00,
+  "pie_minimum": 50,
+  "donut_price": 7.00,
+  "donut_label": "Apple Cider Donuts (pack of 5)",
+  "delivery_fee": 100.00,
+  "payment_note": "ALL PAYMENTS MUST BE MADE VIA CASH OR CHECK.",
+  "vendor": {
+    "name": "Country Gardens Farm Market",
+    "address": "42 Robbinsville-Edinburg Road, Robbinsville, NJ 08691",
+    "phone": "(609) 259-1221",
+    "email": "cgfmfundraising@gmail.com"
+  }
+}
