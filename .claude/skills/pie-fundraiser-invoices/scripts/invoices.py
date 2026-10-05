@@ -350,7 +350,7 @@ def build_pdf(o, cfg, path):
 
     sig = Table([
         [_pb('CUSTOMER SIGNATURE REQUIRED', sz=9, color=DK_GREEN), '', ''],
-        [_p('My signature below confirms that these amounts are final and cannot be changed once submitted.',
+        [_p('My signature below confirms I received this order and the amounts above are correct.',
             sz=8, color=colors.HexColor('#444444')), '', ''],
         ['', '', ''],
         [_p('_' * 36, sz=9), _p('_' * 28, sz=9), _p('_' * 14, sz=9)],
@@ -397,10 +397,12 @@ def email_text(o, cfg):
         lines += [f'Delivery: {when}', f'Address: {o["address"] or "to be confirmed"}']
     else:
         lines += [f'Pickup: {when}', f'Location: {v["name"]}, {v["address"]}']
+    handoff = 'when your order is delivered' if o['method'] == 'Delivery' else 'when you pick up your order'
     lines += ['',
-              'Please review the invoice, sign the signature block, and return it to us. '
-              'All payments must be made via cash or check.', '',
-              'If anything looks incorrect, please let us know as soon as possible.', '',
+              'Please look over the invoice and reply to this email to confirm the quantities and total are '
+              f'correct. We\'ll ask you to sign the invoice {handoff}. All payments must be made via cash or check.',
+              '',
+              'If anything needs to change, just reply and let us know as soon as possible.', '',
               'Thank you,', v['name'], v['address'], v['phone']]
     subject = f'Country Gardens Pie Order Invoice – {o["org"]} ({o["num"]})'
     return subject, '\n'.join(lines)
