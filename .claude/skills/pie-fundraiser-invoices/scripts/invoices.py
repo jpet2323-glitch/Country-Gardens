@@ -402,7 +402,8 @@ def email_text(o, cfg):
               'Please look over the invoice and reply to this email to confirm the quantities and total are '
               f'correct. We\'ll ask you to sign the invoice {handoff}. All payments must be made via cash or check.',
               '',
-              'If anything needs to change, just reply and let us know as soon as possible.', '',
+              f'If anything needs to change, just reply and let us know. All changes must be received by '
+              f'{cfg["change_deadline"]}.', '',
               'Thank you,', v['name'], v['address'], v['phone']]
     subject = f'Country Gardens Pie Order Invoice – {o["org"]} ({o["num"]})'
     return subject, '\n'.join(lines)
