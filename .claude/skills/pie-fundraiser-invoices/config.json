@@ -7,7 +7,7 @@
   "donut_price": 7.00,
   "donut_label": "Apple Cider Donuts (pack of 5)",
   "delivery_fee": 100.00,
-  "change_deadline": "Monday, November 16th",
+  "change_deadline": "",
   "payment_note": "ALL PAYMENTS MUST BE MADE VIA CASH OR CHECK.",
   "vendor": {
     "name": "Country Gardens Farm Market",

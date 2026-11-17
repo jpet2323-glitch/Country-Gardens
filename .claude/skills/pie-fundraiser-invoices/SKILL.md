@@ -83,8 +83,8 @@ Look at one rendered invoice per batch before drafting, especially any with a lo
 
 Work in batches of about 5 so the owners can review as you go. For each Ready order in `orders.json`:
 
-1. Read `pdf_b64` and call Gmail `create_draft` with `to: [contact_email]`, the order's `subject` and `body` exactly as written, and the attachment `{filename: "Invoice_<num>.pdf", mimeType: "application/pdf", content: <the base64>}`. Copy the base64 exactly. The attachment has to pass through this conversation, so a single wrong character corrupts the PDF.
-2. Verify it: call `get_draft` with `messageFormat: "RAW"`, then run
+1. Call Gmail `create_draft` with `to: [contact_email]`, the order's `subject` and `body` exactly as written, and the attachment `{filename: "Invoice_<num>.pdf", mimeType: "application/pdf", content: "sha256:<the PDF's SHA-256>:<its absolute path>"}`. That file reference lets the app attach the PDF from disk. Only if the app refuses file references, paste the contents of `pdf_b64` instead, copied exactly, since one wrong character corrupts the PDF.
+2. Spot-check one draft per batch (every draft if you pasted base64): call `get_draft` with `messageFormat: "RAW"`, then run
    `python3 .claude/skills/pie-fundraiser-invoices/scripts/verify_draft.py <draftId> <pdf path>`.
    It finds the RAW result in this session's transcript and compares checksums. On `MISMATCH`, delete the draft, then recreate and re-verify. On `NOT FOUND`, tell the owners that this draft's attachment couldn't be checked automatically and they should open it in Gmail.
 

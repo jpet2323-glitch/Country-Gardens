@@ -379,7 +379,7 @@ def email_text(o, cfg):
     v = cfg['vendor']
     first = o['contact_name'].split()[0] if o['contact_name'] else 'there'
     lines = [f'Hi {first},', '',
-             f'Thank you for {o["org"]}\'s {cfg["order_phrase"]} with {v["name"]}! Your invoice is attached.', '',
+             f'Thank you for your {cfg["order_phrase"]} with {v["name"]}! Your invoice is attached.', '',
              'Order summary:']
     pie_word = 'pie' if o['pie_count'] == 1 else 'pies'
     if o['pie_count']:
@@ -402,8 +402,9 @@ def email_text(o, cfg):
               'Please look over the invoice and reply to this email to confirm the quantities and total are '
               f'correct. We\'ll ask you to sign the invoice {handoff}. All payments must be made via cash or check.',
               '',
-              f'If anything needs to change, just reply and let us know. All changes must be received by '
-              f'{cfg["change_deadline"]}.', '',
+              'If anything needs to change, just reply and let us know.'
+              + (f' All changes must be received by {cfg["change_deadline"]}.' if cfg.get('change_deadline') else ''),
+              '',
               'Thank you,', v['name'], v['address'], v['phone']]
     subject = f'Country Gardens Pie Order Invoice – {o["org"]} ({o["num"]})'
     return subject, '\n'.join(lines)
